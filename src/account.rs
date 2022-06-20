@@ -12,7 +12,7 @@ impl Account {
         self.balance
     }
     //function to reset amou
-    pub fn change_amount(&mut self,amount: f32){
+    pub fn reset_amount(&mut self,amount: f32){
         self.balance=amount;
     }
 }
