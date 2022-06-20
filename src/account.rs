@@ -11,3 +11,8 @@ impl Account {
     pub fn getBalance(&self) -> f32{
         self.balance
     }
+    //function to reset amou
+    pub fn change_amount(&mut self,amount: f32){
+        self.balance=amount;
+    }
+}
