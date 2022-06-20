@@ -43,3 +43,37 @@ fn withdraw(user: account::Account) -> f32{
     }
     balance-&amount
 }
+fn main() {
+
+    let menu = ["Register new account","Update account information","Delete account records","Deposit Money","Withdraw Money","Transfer Money","Exit"];
+    println!("Welcome to the rust bank");    
+    
+    while 1==1 {
+        println!("\nPlease select an option from below:");
+        let mut index=0;
+        for item in &menu  {
+            index+=1;
+            println!("\t{}. {}",index,item);
+        }
+        let mut option= String::new();
+        io::stdin().read_line(&mut option).expect("msg");
+        let option = option.trim().parse::<i32>().expect("invalid input");
+        let mut user:account::Account = account::Account::new("name");
+        match option {
+            1 => {user = register();}
+            2 => {update()}
+            3 => {delete()}
+            4 => {
+                let new_balance:f32 = deposit(user);
+                //&user.reset_amount(new_balance); TODO: fix commented error
+            }
+            5 => {
+                let new_balance:f32 = withdraw(user);
+                //&user.reset_amount(new_balance);
+            }
+            6 => {transfer()}
+            7 => {quit();break;}
+            _ => {println!("\nInvalid input!!\n\tTry again")}
+        }
+    }
+}
