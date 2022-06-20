@@ -7,3 +7,7 @@ impl Account {
     pub fn new(name: &str) -> Self{
         Self { name: name.to_string(), balance: 0.0 }
     }
+    //function to get balance
+    pub fn getBalance(&self) -> f32{
+        self.balance
+    }
