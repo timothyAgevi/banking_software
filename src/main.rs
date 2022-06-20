@@ -15,3 +15,14 @@ fn register() -> account::Account{
     println!("\tCreated user {}\tAccount balance: 0",name);
     user
 }
+
+//function deposit
+fn deposit(user: account::Account) -> f32{
+    println!("\nEnter amount you wish to deposit:");
+    let mut amount= String::new();
+    io::stdin().read_line(&mut amount).expect("msg");
+    let amount = amount.trim().parse::<f32>().expect("invalid input");
+    let balance: f32 = user.getBalance(); 
+    println!("\tSuccesfuly deposited {}$\n\tNew account balance {}$",amount,balance+&amount);
+    balance+&amount
+}
